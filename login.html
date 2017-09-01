@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>账号管理-登录</title>
+		<link rel="shortcut icon" href="http://img1.app.meitudata.com/meitushop/favicon.ico?v=201601008154432" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="header_a">
+				<div class="header_b" style="float: left;">
+					<a href="login.html"><img src="img/zc1.png"</a>
+					<a href="index.html"><img src="img/zc2.png"</a>
+				</div>
+				<div class="header_c">
+					<a href="zhuce.html">注册</a>
+					<a href="login.html">登录&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+				</div>
+			</div>
+		</header>
+		<div style="height: 600px;">
+		<div>
+			<img src="img/login.jpg" alt="" style="margin: 60px 0 0 -240px;float: left;"/>
+		</div>
+		<div class="aside">
+			<p class="aside_a">美图账号登录</p>
+			<input type="text" id="txt1" placeholder="&nbsp;&nbsp;手机号码" onblur="showa()"/><p id="txta">账号错误</p>
+			<input type="text" id="txt2" placeholder="&nbsp;&nbsp;密码(大于8位的数字、字母、下划线)" onblur="showb()"/><p id="txtb">密码错误</p>
+			<div class="aside_b">
+				<input type="checkbox" checked style="vertical-align: middle;"/>&nbsp;<span style="font-size: 12px;line-height: 28px;">两周内自动登录</span>
+				<a href="#">忘记密码  ？</a>
+			</div>
+			<div id="aside_c">
+				<a href="#">登录</a>
+			</div>
+			<p style="font-size: 14px;color: #787878;margin: 20px 0 0 38px;">或使用其他方式登录：</p>
+		 	<img src="img/xinlang.gif" alt="" style="margin:5px 5px 0 138px;"/>
+		 	<img src="img/qq.gif" alt=""  style="margin-top: 5px;"/>
+			<div class="aside_d">
+				还没有美图账号 ？
+				<a href="zhuce.html" style="color: #fa4776;">立即注册</a>
+			</div>
+		</div>
+		</div>
+		<div class="foot">
+			©2017 Meitu, Inc. 美图公司版权所有 
+			<a href="#" style="color: #4d4d4d;">闽B2-20040192</a>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/w$.js"></script>
+<script type="text/javascript">
+//	手机号验证
+function showa(){
+	var str=w$("txt1").value;
+	var reg=/^1[0-9]{10}$/ig;
+	if(reg.test(str)){
+		w$("txt1").style.cssText="border: 3px solid green;";
+		
+		w$("txta").style.cssText="opacity: 0;";
+	}else{
+		w$("txta").style.cssText="opacity: 1;";
+	}
+}
+
+
+function showb(){
+//密码只能使用数字字母下划线，长度不得小于8位
+	var str=w$("txt2").value;	
+	var reg=/^\w{8,}$/g;
+	if(reg.test(str)){
+		w$("txt2").style.cssText="border: 3px solid green;";
+		w$("txtb").style.cssText="opacity: 0;";
+	}else{
+		w$("txtb").style.cssText="opacity: 1;";
+//		w$("q8").style.display="none";
+	}		
+}
+</script>

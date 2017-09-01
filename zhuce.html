@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>美图会员注册</title>
+		<link rel="shortcut icon" href="http://img1.app.meitudata.com/meitushop/favicon.ico?v=201601008154432" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/zhuce.css"/>
+	</head>
+	<body>
+		<!--header-->
+		<header>
+			<div class="header_a">
+				<div class="header_b" style="float: left;">
+					<a href="login.html"><img src="img/zc1.png"</a>
+					<a href="index.html"><img src="img/zc2.png"</a>
+				</div>
+				<div class="header_c">
+					<a href="zhuce.html">注册</a>
+					<a href="login.html">登录&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+				</div>
+			</div>
+		</header>
+		<content style="width:100%;">
+			<div class="content_a">
+				<div class="content_b">
+					<h3>手机注册</h3>
+					<img src="img/zc3.png" alt="" style="margin: 106px 0 0 -94px;"/>
+				</div>
+				<div class="content_c" style="float: left;">
+					<ul class="content_ca">
+						<li>
+							<span style="font-size: 14px;display: block;padding-top: 18px;">手机号码&nbsp;</span>
+							<input type="text" placeholder="&nbsp;&nbsp;请输入手机号码" id="content_cb" onblur="showa()" style="display:block;margin: -26px 0 0 61px;width: 212px;height: 32px;outline:none;"/>
+							<span id="content_cc">*11位手机号码</span>
+							<span id="content_cd">√</span>
+							<p id="q1">手机号格式错误</p>
+						</li>
+						<li style="margin-top:20px;">
+							<span style="font-size: 14px;display: block;padding-top: 18px;">验证码&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<input type="text" placeholder="&nbsp;输入右边验证码" id="q2" onblur="showb()" style="display:block;width: 100px;height: 32px;outline:none;"/>
+							<span id="q3">√</span>
+							<input type="text" id="q4" style="width: 60px;height:30px;line-height:30px;float:left;border:1px solid #ccc;background:#000;color:#fff;border-radius: 7px;margin: -29px 0 0 193px;padding-left: 10px;"/>
+							<span id="qq1">换一张</span>
+							<p id="q5">验证码输入错误</p>
+						</li>
+						<li style="margin-top:20px ;">
+							<span style="font-size: 14px;display: block;padding-top: 21px;float: left;">设置密码&nbsp;</span>
+							<input type="password" placeholder="&nbsp;&nbsp;请输入密码" id="q6" onblur="showc()" style="display:block;width: 212px;height: 32px;outline:none;margin: 11px 0 0 0;float: left;"/>
+							<span id="q7">不少于8个字符</span>
+							<span id="q8">√</span>
+							<p id="q9">密码格式错误</p>
+						</li>
+						<li style="margin-top:20px ;">
+							<span style="font-size: 14px;display: block;padding-top: 21px;float: left;">重置密码&nbsp;</span>
+							<input type="password" placeholder="&nbsp;&nbsp;请再次输入密码" id="qa1" onblur="showd()" style="width: 212px;height: 32px;outline:none;margin-top: 10px;float: left;"/>
+							<span id="qa2">√</span>
+							<p id="qa3">两次密码不一致</p>
+						</li>
+						<li>
+							<div class="qa4">
+								<input type="checkbox" checked style="vertical-align: middle;"/>&nbsp;<span style="font-size: 14px;">阅读并接受</span>
+								<a href="#" style="font-size: 14px;color: #0088cc;text-decoration: underline;">《美图帐号服务条款》</a>
+							</div>
+						</li>
+						<div class="qa5">
+							<a href="#">注册</a>
+						</div>
+					</ul>
+				</div>
+				
+				 <div class="content_d">
+				 	在美图其他产品上注册过？请
+				 	<a href="login.html" style="color: #0088cc;font-weight: 700;text-decoration: underline;">直接登录</a>
+				 	<p style="font-size: 14px;color: #787878;margin-top: 20px;">或使用其他方式登录：</p>
+				 	<img src="img/xinlang.gif" alt="" style="margin-top: 5px;margin-right: 5px;"/>
+				 	<img src="img/qq.gif" alt=""  style="margin-top: 5px;"/>
+				 </div>
+			</div> 
+			<div class="foot">
+				©2017 Meitu, Inc. 美图公司版权所有 
+				<a href="#" style="color: #4d4d4d;">闽B2-20040192</a>
+			</div>
+		</content>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/w$.js"></script>
+<script type="text/javascript">
+//	手机号验证
+function showa(){
+	var str=w$("content_cb").value;
+	var reg=/^1[0-9]{10}$/ig;
+	if(reg.test(str)){
+		w$("content_cd").style.display="block";
+		w$("content_cc").style.display="none";
+		w$("q1").style.display="none";
+	}else{
+		w$("q1").style.display="block";
+	}
+}
+//随机验证码
+	var arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
+	'p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','0'];
+	var str="";
+	while(str.length<6){
+			var iNum=parseInt(Math.random()*100)
+			while(iNum>36){
+				iNum=parseInt(Math.random()*100)
+			}
+			str+=arr[iNum];
+		}
+	w$("q4").value=str.toUpperCase();
+window.onload=function(){	
+	w$("qq1").onclick=function(){
+		var str='';
+		while(str.length<6){
+			var iNum=parseInt(Math.random()*100)
+			while(iNum>36){
+				iNum=parseInt(Math.random()*100)
+			}
+			str+=arr[iNum];
+		}
+		w$("q4").value=str.toUpperCase();
+	}
+}
+
+function showb(){
+	 var num=w$("q2").value;
+	
+	if(num!=w$("q4").value){
+		alert("验证码输入错误")
+		w$("q4").innerHTML=w$("q4").value;
+		w$("q3").style.display="none";
+		
+    }else{
+		w$("q3").style.display="block";
+	} 
+}
+
+//密码
+function showc(){
+//密码只能使用数字字母下划线，长度不得小于8位
+	var str=w$("q6").value;	
+	var reg=/^\w{8,}$/g;
+	if(reg.test(str)){
+		w$("q8").style.display="block";
+		w$("q7").style.display="none";
+		w$("q9").style.display="none";
+	}else{
+		w$("q9").style.display="block";
+//		w$("q8").style.display="none";
+	}		
+}
+
+//重置密码
+function showd(){
+	if((w$("q6").value!=w$("qa1").value)||(w$("qa1").value=="")){
+		w$("qa3").style.display="block";
+		
+	}else{
+		w$("qa2").style.display="block";
+		w$("qa3").style.display="none";
+	}
+}
+</script>
